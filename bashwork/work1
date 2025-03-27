@@ -1,0 +1,43 @@
+echo ""
+echo ""
+
+echo "Начало выполнения команды 'ls -l'..."
+ls -l
+echo "Команда 'ls -l' выполнена."
+
+
+echo ""
+echo ""
+
+
+echo "начинаем выполнение команды 'date'..."
+date
+echo "Команда 'date' завершена."
+
+
+echo ""
+echo ""
+
+
+echo "Начало sleep"
+sleep 10 &
+wait
+echo "Команда sleep выполнена"
+
+
+echo ""
+echo ""
+
+
+echo "Команда 'ping -c google.com' сохранение в файле 'ping_result.txt'"
+rm -r ping_result.txt
+touch ping_result.txt
+ping -с google.com > ping_result.txt
+echo "Команда ping завершена"
+
+
+echo ""
+echo ""
+
+
+

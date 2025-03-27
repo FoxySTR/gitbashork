@@ -1,0 +1,43 @@
+
+
+echo ""
+echo ""
+
+
+echo "Запущены процессы"
+
+rm -r ping_result.txt
+touch ping_result.txt
+
+ping -c google.com > ping_result.txt
+sleep 3 &
+ls -l
+
+rm -r pid_result.txt
+touch pid_result.txt
+echo LAST_PID=$! > pid_result.txt
+
+wait 6
+echo "Завершено"
+
+echo ""
+echo ""
+
+echo "Начло создания файлов"
+rm -r files
+mkdir files
+cd files
+touch files1.txt files2.txt files3.txt
+echo "Все файлы созданы в папке 'files'."
+cd ..
+echo ""
+echo ""
+
+echo "Начало архивации директорий"
+
+rm -r archive.tar
+rm -r dir1 dir2 dir3
+mkdir dir1 dir2 dir3
+tar --totals --create --verbose --file archive.tar dir1 dir2 dir3
+rm -r dir1 dir2 dir3
+echo "Архивация закончена"
