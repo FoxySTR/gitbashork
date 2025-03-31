@@ -1,0 +1,36 @@
+#!/bin/bash
+
+PROGRAM_NAME="./number_printer"
+
+MONITOR_INTERVAL=3
+echo $LOG_FILE > logFile.txt
+
+is_process_running() {
+        if pgrep -x "$PROGRAM_NAME" >> C:\Users\user.COMP-512-13\Documents\475\bashwork
+        then
+                return 0
+        else
+                return 1
+        fi
+}
+
+while true; do
+        TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+        if is_process_running; then
+                NESSAGE="$TIMESTAMP - Программа '$PROGRAM_NAME' работает."
+                echo '$MESSAGE'
+                echo '$MESSAGE' >> '$LOG_FILE'
+
+                PID=$(pgrep -x "$PROGRAM_NAME")
+
+                ps -p $PID -o %cpu,%mem,cmd
+
+
+
+        else
+                MESSAGE='$TIMESTAMP - Программа '$PROGRAM_NAME' не работает!'
+        fi
+        sleep "$MONITOR_INTERVAL"
+
+done
